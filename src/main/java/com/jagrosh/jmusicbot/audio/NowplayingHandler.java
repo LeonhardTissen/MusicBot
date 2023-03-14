@@ -125,6 +125,7 @@ public class NowplayingHandler
                     // new discord ratelimits specifically limiting changing channel topics
                     // mean we don't want a backlog of changes piling up, so if we hit a 
                     // ratelimit, we just won't change the topic this time
+                    tchan.getManager().sendMessage(text)
                     tchan.getManager().setTopic(text).complete(wait);
                 } 
                 catch(PermissionException | RateLimitedException ignore) {}
